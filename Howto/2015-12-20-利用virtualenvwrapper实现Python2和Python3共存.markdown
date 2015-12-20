@@ -1,8 +1,5 @@
 ﻿# 利用virtualenvwrapper实现Python2和Python3共存
 
-标签（空格分隔）： python virtualenvwrapper 多版本共存
-
----
 关于virtualenvwrapper可以查看以下文档了解：
 [Virtualenvwrapper Docs](http://virtualenvwrapper.readthedocs.org/en/latest/)
 [virtualenvwrapper多环境管理扩展](http://www.nowamagic.net/academy/detail/1330231)
