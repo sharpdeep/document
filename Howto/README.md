@@ -5,3 +5,5 @@
 [Shell终端快捷键](./2015-12-25-Shell终端快捷键.markdown)
 
 [Python pdb调试](./2015-12-26-Python pdb调试.markdown)
+
+[Ubuntu下JDK多版本共存与切换](./2015-12-31-Ubuntu下JDK多版本共存与切换.markdown)
