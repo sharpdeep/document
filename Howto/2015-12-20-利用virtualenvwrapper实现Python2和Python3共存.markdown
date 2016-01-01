@@ -33,9 +33,8 @@ mkvirtualenv env27
 ```
 创建python3.x环境
 ```
-mkvirtualenv -p python3.4目录/bin/python3.4 env34
+mkvirtualenv -p /usr/bin/python3.4 env34
 ```
-apt安装的python3.4目录一般是在`/usr/local/lib/python3.4`下。
 
 如果没有指定，默认情况下是python2.x。
 

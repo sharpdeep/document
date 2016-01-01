@@ -1,0 +1,51 @@
+﻿# 在PyCharm中使用虚拟环境
+
+##一.  导入已有的虚拟环境
+
+假设已有项目`～/project`，之前用virtualenvwrapper管理虚拟环境，虚拟环境目录`～/Envs/project`。
+
+现在导入PyCharm，想使用原先的虚拟环境：
+
+###1. 打开设置
+
+`Files` --> `Settings` --> `Project Interpreter`
+
+###2. 添加虚拟环境路径
+
+在设置右方选择`Add Local` 选择虚拟环境路径。如：
+
+```
+～/Envs/pycharm-demo/bin/python
+```
+
+**注意这里是选择python这个文件，而不是整个虚拟环境目录。**
+
+###3. 使用虚拟环境
+添加成功后，在下拉选择框里选择刚才添加的环境即可。
+
+
+----------
+
+
+##二.  新建一个虚拟环境
+
+###1. 打开设置
+
+`Files` --> `Settings` --> `Project Interpreter`
+
+###2. 新建虚拟路径
+
+选择`Create VirtualEnv`
+
+在弹出的对话框中输入要配置的环境信息：
+
+1. Name中输入名称，如`project`；
+
+2. Location选择：选择配置好的virtualenv的默认目录，如`~/Envs/project`；
+
+3. Base interpreter：选择Python2或者Python3.
+
+###3. 使用虚拟环境
+添加成功后，在下拉选择框里选择刚才添加的环境即可。
+
+
