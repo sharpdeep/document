@@ -1,0 +1,8 @@
+﻿# Sugar Orm
+
+1. 按照[官网](http://satyan.github.io/sugar/index.html)的步骤跟着做，最后定位在save方法错误，提示信息是：`SugarContext has not been initialized properly `，找了github的issue发现也有人遇到一样的[问题](https://github.com/satyan/sugar/issues/477)。在下面comment中发现原来`application`tag的`android:name`属性必须是`com.orm.SugarApp`，改正过来后正常运行！
+
+
+
+
+
