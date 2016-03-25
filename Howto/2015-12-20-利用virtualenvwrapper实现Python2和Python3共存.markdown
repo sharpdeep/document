@@ -2,6 +2,7 @@
 
 关于virtualenvwrapper可以查看以下文档了解：
 [Virtualenvwrapper Docs](http://virtualenvwrapper.readthedocs.org/en/latest/)
+
 [virtualenvwrapper多环境管理扩展](http://www.nowamagic.net/academy/detail/1330231)
 
 virtualenvwrapper在平时的应用中主要用于**为每个项目建立一个独立的虚拟环境，**让每个项目的依赖模块不共享，使得不同版本的模块可以同时存在。
