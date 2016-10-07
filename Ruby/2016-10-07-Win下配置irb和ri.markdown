@@ -1,0 +1,37 @@
+# Win下配置irb和ri
+
+## 配置irb，打开irb补全和缩进功能
+
+irb的配置文件在用户目录下，如
+
+`C:\Users\Bear\.irbrc`
+
+如果不存在配置文件，可以新建(win下新建.irbrc的方法是重命名为`.irbrc.`)
+
+然后将以下配置写入配置文件中
+
+```
+#这是irb的配置文件,irb运行前会读取此文件的配置,
+#此文件需要在用户目录下
+require 'irb/completion'  #打开自动完成功能
+IRB.conf[:AUTO_INDENT]=true #打开自动缩进功能
+```
+
+## 配置ri，命令行下获取帮助信息
+
+安装Ruby后自带chm的文档，在`%RubyHome%\doc`
+
+如果需要ri格式的文档(可以在命令行查看)
+
+1. 安装`rdoc-data`
+
+```
+gem install rdoc-data
+```
+
+2. 生成ri数据
+
+```
+rdoc-data --install
+gem rdoc -all --overwrite
+```
