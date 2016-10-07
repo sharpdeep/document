@@ -1,0 +1,16 @@
+# 替换Gem源
+
+1. 之前淘宝有做过gem的[镜像](https://ruby.taobao.org/)，不过好像是[没有维护了](http://www.oschina.net/news/71749/taobao-gems-ruby-china)
+
+2. 现在可以采用[ruby-china的镜像](https://gems.ruby-china.org/)
+
+3. 修改source
+
+```
+$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+$ gem sources -l
+https://gems.ruby-china.org
+# 确保只有 gems.ruby-china.org
+```
+
+**如果遇到 SSL 证书问题，你又无法解决，请直接用 http://gems.ruby-china.org 避免 SSL 的问题。**
