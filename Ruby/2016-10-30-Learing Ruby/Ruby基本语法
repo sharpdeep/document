@@ -117,3 +117,97 @@ irb(main):082:0> h['key1']
 irb(main):083:0> h['key2']
 => 0
 ```
+
+#### 条件结构
+
+```
+if count > 10
+  puts "try again"
+elsif count  == 3
+  puts "you lose"
+else
+ puts "enter a number"
+end
+```
+
+语句修饰符形式
+
+```
+puts "you are child" if age < 18
+```
+
+#### 循环结构
+
+```
+while line.gets
+  line.downcase
+end
+```
+
+语句修饰符形式
+
+```
+square = 2
+square = square * square while square < 100
+```
+
+#### 正则表达式
+
+**/正则表达式/**表示一个正则表达式
+
+`=~`判断字符串是否符合正则表达式，如果匹配返回第一个匹配的位置，如果没匹配则返回nil
+
+```
+word = "Python"
+if word =~ /Python|Ruby/
+  puts "the language is #{word}"
+end
+```
+
+`sub`函数替换第一个匹配的字符串
+`gsub`函数替换所有匹配的字符串
+
+```
+word = "Python"
+word.sub(/ython/,"erl") #word字符串并没有改变
+```
+
+#### block
+
+定义：用花括号或do...end包起来的代码,约定俗成的是单行用花括号，多行用do...end
+使用: 调用方法后
+用途：调用方法中yield处调用block，用于实现迭代器
+
+```
+def call_block
+  puts "start of the method"
+  yield
+  puts "end of the method"
+
+call_block {puts "in the block"}
+```
+常用的each即是一个迭代器
+
+```
+animals = %w(dog cat bee)
+animals.each(|animal| puts animal)
+```
+
+each 伪代码
+```
+def each
+  for each or animals
+    yield(animal)
+  end
+end
+```
+
+#### IO操作
+
+常见的输出有3种：puts、print、printf
+
+- puts：换行
+- print 不换行
+- printf 同C语言
+
+输入：gets，从标准输入流
