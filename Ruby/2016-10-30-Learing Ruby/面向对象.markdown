@@ -1,0 +1,161 @@
+### 类
+
+#### 类定义
+
+```
+class Song
+  def initialize(name,artist,duration)
+    @name = name
+    @artist = artist
+    @duration = duration
+  end
+end
+
+song = Song.new("Bicyclops","Fleck",260)
+song.inspect  #输出对象信息
+```
+
+`initialize`方法用于初始化类，新建对象时，调用`new`方法时调用
+
+#### 继承
+
+1. 所有类都是Object类的子类
+2. 继承的格式：
+
+```
+class KaraokSong < Song
+  def initialize(name,artist,duration,lyrics)
+    super(name,artist,duration)  # 调用父类的初始化
+    @lyrics = lyrics
+  end
+
+  def to_s
+    super + " #@lyrics"  # 调用super方法而非直接访问父类的实例变量，降低耦合
+  end  
+end
+```
+
+#### 属性
+
+1. 类的实例变量外部是不可访问的，属性是指外部可访问的对象的状态
+2. 有两种方式可以让外部访问类的实例变量
+ - 提供方法访问实例变量
+ - 使用`attr_reader`
+
+```
+ class Song
+  attr_reader :name, :artist, :duration
+end
+```
+
+3. 可读属性：也有两种实现方式
+  - 提供方法(以`=`结束的方法)
+  ```
+  class Song
+    def duration=(new_duartion)
+      @duration = new_duartion
+    end
+  end
+  ```
+
+  - 使用`attr_writer`
+
+    ```
+    class Song
+      attr_writer :duration
+    ```
+
+#### 类变量
+不像实例变量，类变量每个类只有一个,类变量以`@@`开头
+
+```
+class Song
+  @@play = 0 # 类变量必须要初始化
+  def initialize(name,artist,duration)
+    @name = name
+    @artist = artist
+    @duration = duration
+    @play = 0
+  end
+  def play()
+    @play += 1
+    @@play += 1
+    puts "this song play #@play times, total play #@@play times"
+  end
+end
+```
+
+#### 类方法
+并非一个对象特有，而是一个只有一个类方法，实例方法和类方法在定义是区分，类方法定义时以`类名.方法名`定义
+
+```
+class SongList
+  MAX_TIME = 5*60
+  def SongList.is_too_long(song)
+    song.duration > MAX_TIME
+  end
+end
+```
+
+#### 权限控制
+
+- public：默认访问权限，除`initialize`外
+- protected: 只允许类及子类的对象访问
+- private：只允许在对象的上下文访问
+
+
+#### 权限控制的方法
+以下权限控制方法适用于实例方法
+
+1. 有两种方式：
+  - 利用`private`,`public`和`protected`三个方法，三个方法下定义的方法为相应的控制权限
+
+  ```
+  class Test
+    def test1  # public权限
+      ....
+    end
+
+  private
+    def test2 # private权限
+      ....
+    end
+
+    def test3 # private权限
+      ....
+    end
+
+  protected
+    def test4  # protected权限
+      ...
+    end
+
+  public
+    def test5 # public权限
+      ....
+    end
+  ```
+
+  - 利用传入参数列表来控制方法的访问级别
+
+  ```
+  class Test
+    .....
+    private :test1, :test2
+    protected :test3, :test4 # 处理普通方法，还可以是属性，控制某个属性可读可写的权限
+    public :test5
+  end
+  ```
+
+#### 单例模式实现(私有化类方法)
+
+```
+class Logger
+  @@logger = nil
+  def Logger.create  # create方法替代new方法
+    @@logger = new unless @@logger
+    @@logger
+  end
+  private_class_method :new  # 私有话类方法
+end
+```
